@@ -51,7 +51,6 @@ jobs:
       - name: Deploy to Production
         uses: amondnet/vercel-action@v20
         id: deploy-vercel-production
-        if: github.event_name == 'pull_request' && github.ref == 'refs/heads/main'
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
