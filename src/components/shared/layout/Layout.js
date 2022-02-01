@@ -58,7 +58,7 @@ class SiteLayout extends React.Component {
             </div>
           </Content>
           <Footer style={{ textAlign: "center" }}>
-            ©2022 Footer Content Goes Here....
+          Environment - {process.env.NODE_ENV}, Config - {process.env.NEXT_PUBLIC_ENV_KEY}
           </Footer>
         </Layout>
       </Layout>

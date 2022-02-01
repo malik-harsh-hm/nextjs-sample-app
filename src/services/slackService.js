@@ -32,7 +32,7 @@ export const slackService = {
 
 function GetConversationHistory(data) {
   // TODO - fetch from config
-  let SLACK_WORKSPACE = "testdashboard-zl35140";
+  let SLACK_WORKSPACE = process.env.NEXT_PUBLIC_SLACK_WORKSPACE;
   let AUTH_TOKEN = "xoxb-3029439725222-3059861872672-3GV8CWy1SSyVraGBY9sTRm6L"; //NOTE - this expires automatically
   let CHANNEL = data.channel;
 
