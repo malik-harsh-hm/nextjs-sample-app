@@ -1,9 +1,8 @@
 ---
-title: 'about-us-title'
-image : '/images/about-us.png'
-description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu nibh mollis, vestibulum ligula nec, fermentum est. Maecenas tincidunt varius iaculis. Nullam id neque sit amet est vestibulum tempus sed quis magna. Ut lobortis enim at justo posuere, in consectetur eros egestas. Maecenas vestibulum urna enim, eget fermentum felis suscipit at. Donec sit amet mi vel velit porttitor vestibulum tristique nec arcu. Praesent at ipsum arcu. Cras at ultrices ex. Aliquam cursus sagittis sapien ac posuere. Morbi aliquet eros in faucibus lobortis. Mauris suscipit nulla turpis, ac tincidunt elit pulvinar eget. In egestas porttitor sem eget egestas.'
+articleHeading: 'Running Tests'
+articleImage: '/images/running-tests.png'
+articleDate: '8th December 2021'
 ---
-
 
 Running Tests
 =============

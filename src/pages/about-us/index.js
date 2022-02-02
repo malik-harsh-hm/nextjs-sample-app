@@ -18,7 +18,7 @@ export default function AboutUs(props) {
 export async function getStaticProps(context) {
 
     // const slug = context.params; // in case of dyanamic path
-    let slug = 'about-us';
+    let slug = 'about-us'; // static slug how to get ??
     // get front matter
     let markdownWithMeta = fs.readFileSync(path.join('siteContent', slug + '.md'), 'utf-8');
 
