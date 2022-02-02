@@ -16,7 +16,7 @@ const ChatContainer = () => {
         channel: CHANNEL,
       });
 
-      response = await response.json();
+      response = await response;
       if (response?.ok === true) {
         // set local states
         setConversation(response);
