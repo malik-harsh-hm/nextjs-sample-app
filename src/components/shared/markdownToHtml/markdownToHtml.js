@@ -1,5 +1,5 @@
 
-export default function MarkdownToHtml({ content }) {
+export default function MarkdownToHtml({content}) {
   return (
       <div
         dangerouslySetInnerHTML={{ __html: content }}

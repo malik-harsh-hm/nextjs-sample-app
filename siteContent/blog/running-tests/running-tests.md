@@ -1,6 +1,6 @@
 ---
 articleHeading: 'Running Tests'
-articleImage: '/images/running-tests.png'
+articleImage: '/images/blogs/running-tests.png'
 articleDate: '8th December 2021'
 ---
 

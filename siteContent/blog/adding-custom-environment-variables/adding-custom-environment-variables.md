@@ -1,6 +1,6 @@
 ---
 articleHeading: 'Adding Custom Environment Variables'
-articleImage: '/images/adding-custom-environment-variables.png'
+articleImage: '/images/blogs/adding-custom-environment-variables.png'
 articleDate: '2nd March 2021'
 ---
 

@@ -1,6 +1,6 @@
 ---
 articleHeading: 'Different ways to fetch data in Next.js (server-side) and when to use them'
-articleImage: '/images/nextjs-serverside-data-fetching.png'
+articleImage: '/images/blogs/nextjs-serverside-data-fetching.png'
 articleDate: '2nd March 2021'
 ---
 

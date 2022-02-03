@@ -1,10 +1,10 @@
-import MarkdownToHtml from '../markdownToHtml/index';
+import MarkdownToHtml from '../../shared/markdownToHtml/index';
 import Link from 'next/link';
 
 
 export default function ArticleTile({ articleHeading, articleDate, articleTags, articleDescription, articleLink }) {
     return (
-        <div>
+        <divcl>
             <h3>{articleHeading}</h3>
             <p>
                 <span>{articleDate}</span>
@@ -13,7 +13,6 @@ export default function ArticleTile({ articleHeading, articleDate, articleTags, 
             </p>
             <p>{articleDescription}</p>
             <Link href={articleLink}>Read More</Link>
-
         </div>
     )
 }

@@ -1,6 +1,6 @@
 ---
 articleHeading: 'Using Composite GitHub Actions to make your Workflows smaller and more reusable'
-articleImage: '/images/composite-github-actions.png'
+articleImage: '/images/blogs/composite-github-actions.png'
 articleDate: '8th December 2021'
 ---
 

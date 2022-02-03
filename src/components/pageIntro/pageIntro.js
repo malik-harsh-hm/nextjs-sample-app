@@ -1,4 +1,4 @@
-import MarkdownToHtml from '../markdownToHtml/index';
+import MarkdownToHtml from '../shared/markdownToHtml/index';
 import Image from 'next/image';
 
 
