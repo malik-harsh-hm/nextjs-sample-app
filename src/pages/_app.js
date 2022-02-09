@@ -3,16 +3,17 @@
 import "../../styles/globals.css";
 import "antd/dist/antd.css";
 import SiteLayout from "../components/shared/layout/Layout";
+import { SessionProvider } from "next-auth/react"
 
-// import { configureFakeBackend } from '../services/fakeBackEndService';
 
-// configureFakeBackend();
-
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
-    <SiteLayout>
-      <Component {...pageProps} />
-    </SiteLayout>
+    <SessionProvider session={session}>
+      <SiteLayout>
+        <Component {...pageProps} />
+      </SiteLayout>
+    </SessionProvider>
+
   );
 }
 

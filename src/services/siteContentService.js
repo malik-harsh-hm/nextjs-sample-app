@@ -1,0 +1,1 @@
+// Works as a content repository service.
