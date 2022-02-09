@@ -3,52 +3,7 @@
 // export { default } from '../components/chat/chatContainer/index';
 
 export default function Home(props) {
-    return <div>{props.content}
-            <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-        <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    <br/>.
-    </div>;
+    return <>{props.content}</>
 }
 
 // ----------------------------------------------------------Server side only-------------------------------------------------------------------

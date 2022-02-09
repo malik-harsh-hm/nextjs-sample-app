@@ -17,7 +17,7 @@ export default function BlogDetail(props) {
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import markdownToHtml from '../../../../lib/markdownToHtml';
+import markdownToHtml from '../../../utils/utils';
  
 // Helper
 function getDirectories(path) {

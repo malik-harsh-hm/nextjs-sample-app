@@ -3,14 +3,13 @@
 
 // client side imports
 import React, { Fragment } from 'react';
-import CardWithBody from '../../components/shared/card/index'
 
 // server side imports
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { getSession, useSession } from 'next-auth/react';
-import markdownToHtml from '../../../lib/markdownToHtml';
+import markdownToHtml from '../../utils/utils';
 
 
 export default function AboutUs({ data }) {
@@ -18,7 +17,7 @@ export default function AboutUs({ data }) {
     const { data: session, status } = useSession();
     const loading = status === "loading";
     
-    return (<Fragment><CardWithBody {...data} /></Fragment>);
+    return (<Fragment>About Us</Fragment>);
 }
 
 // ----------------------SSG----------------------
