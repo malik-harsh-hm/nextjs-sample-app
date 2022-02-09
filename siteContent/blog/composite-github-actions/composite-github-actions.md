@@ -2,6 +2,8 @@
 articleHeading: 'Using Composite GitHub Actions to make your Workflows smaller and more reusable'
 articleImage: '/images/blogs/composite-github-actions.png'
 articleDate: '8th December 2021'
+articleTags: 'github'
+articleDescription: 'article description'
 ---
 
 At work there has been a drive to move existing CI/CD pipelines from Jenkins to GitHub Workflows in order to empower developers with more control over test, feature and production deployments.

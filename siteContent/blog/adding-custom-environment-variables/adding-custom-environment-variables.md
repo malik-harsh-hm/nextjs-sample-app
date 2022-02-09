@@ -2,6 +2,8 @@
 articleHeading: 'Adding Custom Environment Variables'
 articleImage: '/images/blogs/adding-custom-environment-variables.png'
 articleDate: '2nd March 2021'
+articleTags: 'data, react'
+articleDescription: 'article description'
 ---
 
 Adding Custom Environment Variables

@@ -2,6 +2,8 @@
 articleHeading: 'Using getStaticProps and getStaticPaths with TypeScript - Next.js'
 articleImage: '/images/blogs/nextjs-getstaticprops-and-getstaticpaths-with-typescript.png'
 articleDate: '24th March 2021'
+articleTags: 'nextjs, SSR'
+articleDescription: 'article description'
 ---
 
 

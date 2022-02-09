@@ -1,22 +1,30 @@
 // www.domain.com/blog
+// Client side authentication + SSG
 
-// ----------------------------------------------------------Client side-------------------------------------------------------------------
 // client side imports
 import React, { Fragment } from 'react';
 import Blog from '../../components/blog/index'
-
-export default function BlogHome(props) {
-
-    return <Fragment><Blog {...props} /></Fragment>;
-}
-
-// ----------------------------------------------------------Server side-------------------------------------------------------------------
-
+import AccessDenied from '../../components/shared/accessDenied/index'
+import { useSession } from "next-auth/react"
 // server side imports
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import markdownToHtml from '../../../lib/markdownToHtml';
+
+export default function BlogHome(props) {
+    const { data: session, status } = useSession();
+    const loading = status === "loading";
+        
+    // If no session exists, display access denied message
+    if (!session) {
+        return (
+            <AccessDenied />
+        )
+    }
+    // If session exists, display content
+    return <Fragment><Blog {...props} /></Fragment>;
+}
 
 // // Only required for Dyanamic SSG pages
 // export async function getStaticPaths() {

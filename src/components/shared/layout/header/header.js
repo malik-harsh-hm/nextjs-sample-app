@@ -1,28 +1,85 @@
 
-import { Layout, Menu } from "antd";
+import React, { Fragment } from 'react';
+
+
+import styles from './header.module.css'; // Import css modules stylesheet as styles
+
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+
 import Link from 'next/link';
+import { signIn, signOut, useSession } from "next-auth/react"
 
-const {Header } = Layout;
+export default function MainHeader() {
 
-export default function MainHeader(){
-return(<Header style={{ position: 'fixed', zIndex: 1, width: '100%'}}>
+  const { data: session, status } = useSession();
+  const loading = status === "loading";
+  console.log(session, loading);
 
-<Menu theme="dark" mode="horizontal">
-  <Menu.Item key="Home"><Link href='/'>
-            Home
-          </Link></Menu.Item>
-  <Menu.Item key="Blog"><Link href='/blog'>
-            Blog
-          </Link></Menu.Item>
-  <Menu.Item key="Portfolio"><Link href='/portfolio'>
-            Portfolio
-          </Link></Menu.Item>
-          <Menu.Item key="About Us"><Link href='/about-us'>
-            About Us
-          </Link></Menu.Item>
-</Menu>
+  const SignInOutContent = () => {
+    return (
+      <Fragment>
+        {!session && !loading && (
+          <>
+            <Button color="inherit" onClick={e => {
+              e.preventDefault()
+              signIn()
+            }
+            }>Login</Button>
+          </>
+        )}
+        {session && (
+          <>
+            <Button color="inherit" onClick={e => {
+              e.preventDefault()
+              signOut()
+            }}>Logout</Button>
 
-</Header>);
+          </>
+        )}
+      </Fragment>
+    );
+
+  }
+
+  const pages = [
+    { key: 'Home', nav: '/' },
+    { key: 'Blog', nav: '/blog' },
+    { key: 'About-Us', nav: '/about-us' },
+    { key: 'Protected API', nav: '/api-example' },
+  ];
+
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+
+    <AppBar position="sticky">
+      <Toolbar>
+        <Typography variant="h4" style={{padding:'2px'}} >
+          LOGO
+        </Typography>
+          {pages.map((page) => (
+            <Button     style={{
+              backgroundColor: "white",
+              margin:'4px'
+          }}
+          variant="contained"><Link href={page.nav}>{page.key}</Link></Button>
+          ))}
+         {SignInOutContent()}
+      </Toolbar>
+    </AppBar>
+    </Box>
+
+  );
 };
 
 

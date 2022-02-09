@@ -1,16 +1,31 @@
-import { Layout } from "antd";
 
-const { Content} = Layout;
+import styles from './content.module.css'; // Import css modules stylesheet as styles
 
-export default function MainContent(props){
-return(
-    <Content style={{ border:"dotted",margin: '150px 300px', overflow: 'initial' }}>
-    <div
-      className="site-layout-background"
-      style={{ padding: 40, minHeight: 560, textAlign: 'left' }}
-    >
-      {props.children}
-    </div>
-  </Content>
-);
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
+
+const Item = styled(Paper)(({ theme }) => ({
+  ...theme.typography.body2,
+  padding: theme.spacing(4),
+  textAlign: "left",
+  color: theme.palette.text.secondary
+}));
+
+
+export default function MainContent(props) {
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+    <Grid container spacing={2}>
+      <Grid item xs={2}>
+      </Grid>
+      <Grid item xs={8}>
+        <Item>{props.children}</Item>
+      </Grid>
+      <Grid item xs={2}>
+      </Grid>
+    </Grid>
+  </Box>
+  );
 };

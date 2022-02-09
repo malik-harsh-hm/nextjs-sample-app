@@ -2,6 +2,8 @@
 articleHeading: 'Different ways to fetch data in Next.js (server-side) and when to use them'
 articleImage: '/images/blogs/nextjs-serverside-data-fetching.png'
 articleDate: '2nd March 2021'
+articleTags: 'data, nextjs'
+articleDescription: 'Article Description'
 ---
 
 When building an application powered by Next.js it's probable that you'll need to fetch data from either a file, an internal API route or an external API [such as the Dev.to API](https://dev.to/jameswallis/i-completely-rewrote-my-personal-website-using-dev-to-as-a-cms-2pje). Moreover, determining what data fetching method to use in a Next.js application can easily become confusing - especially as it isn't as simple as making an API request inside your components render function, as you might in a stock React app.
