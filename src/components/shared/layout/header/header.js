@@ -54,29 +54,29 @@ export default function MainHeader() {
 
   const pages = [
     { key: 'Home', nav: '/' },
-    { key: 'Blog', nav: '/blog' },
-    { key: 'About-Us', nav: '/about-us' },
+    { key: 'Articles', nav: '/article' },
+    { key: 'MD Example', nav: '/markdown-example' },
     { key: 'Protected API', nav: '/api-example' },
   ];
 
   return (
     <Box sx={{ flexGrow: 1 }}>
 
-    <AppBar position="sticky">
-      <Toolbar>
-        <Typography variant="h4" style={{padding:'2px'}} >
-          LOGO
-        </Typography>
-          {pages.map((page) => (
-            <Button     style={{
+      <AppBar position="sticky">
+        <Toolbar>
+          <Typography variant="h4" style={{ padding: '2px' }} >
+            LOGO
+          </Typography>
+          {pages.map((page, index) => (
+            <Button key={index} style={{
               backgroundColor: "white",
-              margin:'4px'
-          }}
-          variant="contained"><Link href={page.nav}>{page.key}</Link></Button>
+              margin: '4px'
+            }}
+              variant="contained"><Link href={page.nav}>{page.key}</Link></Button>
           ))}
-         {SignInOutContent()}
-      </Toolbar>
-    </AppBar>
+          {SignInOutContent()}
+        </Toolbar>
+      </AppBar>
     </Box>
 
   );
