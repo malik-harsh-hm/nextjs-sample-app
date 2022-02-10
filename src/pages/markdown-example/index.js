@@ -22,13 +22,13 @@ export async function getServerSideProps(context) {
     if (!session) {
         return {
             redirect: {
-                destination: '/api/auth/signin?callbackUrl=http://localhost:3000/about-us',
+                destination: `/api/auth/signin?callbackUrl=${process.env.DOMAIN_URL}/markdown-example`,
                 permanent: false
             }
         }
     }
     // Get content
-    let data = getBaseMarkup(baseFolder);
+    let data = await getBaseMarkup(baseFolder);
     return {
         props: {
             session,

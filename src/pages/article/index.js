@@ -11,11 +11,11 @@ export default function ArticleHome({ data }) {
     const { data: session, status } = useSession();
     const loading = status === "loading";
 
-    // if (!session) {
-    //     return (
-    //         <AccessDenied />
-    //     )
-    // }
+    if (!session) {
+        return (
+            <AccessDenied />
+        )
+    }
     return <Fragment><Article {...data} /></Fragment>;
 }
 
