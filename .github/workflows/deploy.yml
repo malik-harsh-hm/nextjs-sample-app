@@ -1,16 +1,17 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Deploys My Application on Vercel
+name: CI & CD pipeline for Next JS application
+# Triggered any time there’s a new change pushed to the main branch
 on:
-  pull_request:
+  push:
     branches: [ main ]
-
+# Job with Steps
 jobs:
-  vercel:
+  Build-Test-And-Deploy-To-Vercel:
     runs-on: ubuntu-latest
     steps:
-    
+#  Step - Check out the code from GitHub 
       - name: Checkout Code
         uses: actions/checkout@v2
         
@@ -25,15 +26,15 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
- 
+#  Step - Build
       - name: Build
         run: |
           npm install
           npm run build
- 
+#  Step - Run Tests Locally
       - name: Run Tests Locally
         run: npm run test
- 
+#  Step - Deploy to Vercel staging
       - name: Deploy to Staging
         id: deploy-vercel-staging
         uses: amondnet/vercel-action@v20
@@ -42,12 +43,12 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           scope: ${{ secrets.VERCEL_ORG_ID }}
- 
+#  Step - Run Tests Against Vercel staging
       - name: Run Tests Against Vercel
         env:
           VERCEL_URL: ${{ steps.deploy-vercel-staging.outputs.preview-url }}
         run: npm run test
- 
+#  Step - Deploy to Vercel production
       - name: Deploy to Production
         uses: amondnet/vercel-action@v20
         id: deploy-vercel-production
