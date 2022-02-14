@@ -8,6 +8,14 @@ import path from 'path';
 
 
 export default function ArticleDetailPage({ data }) {
+    let { data: session, status } = useSession();
+    let loading = status === "loading";
+
+    if (!session) {
+        return (
+            <AccessDenied />
+        )
+    }
     return (<Fragment><ArticleDetails {...data?.article} /></Fragment>);
 }
 
