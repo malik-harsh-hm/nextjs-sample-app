@@ -1,7 +1,6 @@
 
 import React, { Fragment } from 'react';
 
-
 import styles from './header.module.css'; // Import css modules stylesheet as styles
 
 import AppBar from '@mui/material/AppBar';
@@ -17,14 +16,24 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 import Link from 'next/link';
 import { signIn, signOut, useSession } from "next-auth/react"
 
 export default function MainHeader() {
 
+  const darkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+      primary: {
+        main: '#1976d2',
+      },
+    },
+  });
+
   const { data: session, status } = useSession();
   const loading = status === "loading";
-  console.log(session, loading);
 
   const SignInOutContent = () => {
     return (
@@ -54,29 +63,31 @@ export default function MainHeader() {
 
   const pages = [
     { key: 'Home', nav: '/' },
-    { key: 'Blog', nav: '/blog' },
-    { key: 'About-Us', nav: '/about-us' },
+    { key: 'Articles', nav: '/article' },
+    { key: 'Markdown Page', nav: '/markdown-example' },
     { key: 'Protected API', nav: '/api-example' },
   ];
 
   return (
     <Box sx={{ flexGrow: 1 }}>
+      <ThemeProvider theme={darkTheme}>
 
-    <AppBar position="sticky">
-      <Toolbar>
-        <Typography variant="h4" style={{padding:'2px'}} >
-          LOGO
-        </Typography>
-          {pages.map((page) => (
-            <Button     style={{
+      <AppBar position="sticky" color="primary">
+        <Toolbar>
+          <Typography variant="h4" color="inherit" style={{ padding: '10px' }} >
+            COMPANY LOGO
+          </Typography>
+          {pages.map((page, index) => (
+            <Button key={index} style={{
               backgroundColor: "white",
-              margin:'4px'
-          }}
-          variant="contained"><Link href={page.nav}>{page.key}</Link></Button>
+              margin: '4px'
+            }}
+              variant="contained"><Link style={{color:"hotpink"}} href={page.nav}>{page.key}</Link></Button>
           ))}
-         {SignInOutContent()}
-      </Toolbar>
-    </AppBar>
+          {SignInOutContent()}
+        </Toolbar>
+      </AppBar>
+      </ThemeProvider>
     </Box>
 
   );

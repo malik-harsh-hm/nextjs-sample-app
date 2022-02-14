@@ -14,21 +14,20 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 
-export default function Blog(props) {
-    console.log(props);
+export default function Article({article, articles}) {
     return (
         <>
             <div>
                 <PageIntro
-                    pageHeading={props.blog.frontmatter.pageHeading}
-                    introText={props.blog.frontmatter.pageDescription}
+                    pageHeading={article.frontmatter.pageHeading}
+                    introText={article.frontmatter.pageDescription}
                 />
             </div>
             <Box sx={{ flexGrow: 1 }}>
                 <Grid container spacing={2}>
-                    {props.blogs.map((blog, index) => {
-                        return (<Grid item xs={4}>
-                            <Item>
+                    {articles.map((blog, index) => {
+                        return (<Grid key={index} item xs={4}>
+                            <Item key={index}>
                                 <ArticleTile
                                     key={index}
                                     articleHeading={blog.frontmatter.articleHeading}
@@ -36,7 +35,7 @@ export default function Blog(props) {
                                     articleTags={blog.frontmatter.articleTags}
                                     articleImage={blog.frontmatter.articleImage}
                                     articleDescription={blog.frontmatter.articleDescription}
-                                    articleLink={`/blog/${blog.slug}`}
+                                    articleLink={`/article/${blog.slug}`}
                                 />
                             </Item>
                         </Grid>)

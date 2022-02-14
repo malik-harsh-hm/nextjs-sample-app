@@ -8,7 +8,7 @@ export default function ApiExamplePage() {
       <p>
         <em>You must be signed in to see response.</em>
       </p>
-      <h2>Hello API</h2>
+      <h2>API Details -</h2>
       <p>/api/hello</p>
       <iframe src="/api/hello" />
     </Fragment>
