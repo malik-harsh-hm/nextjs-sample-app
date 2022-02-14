@@ -75,14 +75,14 @@ export default function MainHeader() {
       <AppBar position="sticky" color="primary">
         <Toolbar>
           <Typography variant="h4" color="inherit" style={{ padding: '10px' }} >
-            COMPANY LOGO
+            Next.js Showcase
           </Typography>
           {pages.map((page, index) => (
             <Button key={index} style={{
               backgroundColor: "white",
               margin: '4px'
             }}
-              variant="contained"><Link style={{color:"hotpink"}} href={page.nav}>{page.key}</Link></Button>
+              variant="contained"><Link href={page.nav}>{page.key}</Link></Button>
           ))}
           {SignInOutContent()}
         </Toolbar>

@@ -1,6 +1,6 @@
 ---
-pageHeading: 'Markdown Example'
-pageDescription: 'Markdown is a very lightweight markup language that lets you create rich text (meaning text that has emphasis, headers, etc) in any plain text editor. Markdown, like HTML, allows you to specify text formatting, but it is far less expressive than HTML, which is perfectly fine since it is only meant to format text and not create full web pages. The content of this page is written in markdown.'
+pageHeading: 'Markdown Page'
+pageDescription: 'This page pre-fetches data by calling getServerSideProps() function. This page is also a protected page. Unauthenticated access causes redirection from the sign-in API '
 ---
 
 # h1 Heading 8-)
@@ -134,20 +134,6 @@ Right aligned columns
 [link with title](http://nodeca.github.io/pica/demo/ "title text!")
 
 Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
-
-
-## Images
-
-![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg "The Stormtroopocat")
-
-Like links, Images also have a footnote style syntax
-
-![Alt text][id]
-
-With a reference later in the document defining the URL location:
-
-[id]: https://octodex.github.com/images/dojocat.jpg  "The Dojocat"
 
 
 ## Plugins
