@@ -4,7 +4,7 @@ export default function HomePage() {
 
 
     return (<div>
-        <h1>Application's Tech Stack Overview</h1>
+        <h1>Application Tech Stack Overview</h1>
 
         <ul>
             <li>Material UI based components</li>
