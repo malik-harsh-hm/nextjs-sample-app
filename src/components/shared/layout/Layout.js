@@ -1,30 +1,17 @@
 import React from "react";
-import { Layout } from "antd";
-import {
-  AppstoreOutlined,
-  BarChartOutlined,
-  CloudOutlined,
-  ShopOutlined,
-  TeamOutlined,
-  UserOutlined,
-  UploadOutlined,
-  VideoCameraOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-} from "@ant-design/icons";
-import Link from 'next/link'
-
+import Link from 'next/link';
 import MainHeader from './header/header';
 import MainContent from './content/content';
 import MainFooter from './footer/footer';
+import { StyledEngineProvider } from '@mui/material/styles';
 
 export default function SiteLayout(props) {
 
   return (
-    <Layout>
+<StyledEngineProvider injectFirst>
       <MainHeader />
       <MainContent {...props} />
-      <MainFooter />
-    </Layout>
+      {/* <MainFooter /> */}
+</StyledEngineProvider>
   );
 };

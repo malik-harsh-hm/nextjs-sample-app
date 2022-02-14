@@ -21,7 +21,7 @@ export default function MainContent(props) {
       <Grid item xs={2}>
       </Grid>
       <Grid item xs={8}>
-        <Item>{props.children}</Item>
+        <Item style={{minHeight:'500px'}}>{props.children}</Item>
       </Grid>
       <Grid item xs={2}>
       </Grid>

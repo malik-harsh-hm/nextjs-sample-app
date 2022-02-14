@@ -1,4 +1,3 @@
-// www.domain.com/article
 // Client side authentication + SSG
 
 import React, { Fragment } from 'react';
@@ -7,9 +6,9 @@ import AccessDenied from '../../components/shared/accessDenied/index'
 import { useSession } from "next-auth/react"
 import { getNestedMarkup, getBaseMarkup } from '../../services/siteContentService';
 
-export default function ArticleHome({ data }) {
-    const { data: session, status } = useSession();
-    const loading = status === "loading";
+export default function ArticleHomePage({ data }) {
+    let { data: session, status } = useSession();
+    let loading = status === "loading";
 
     if (!session) {
         return (
@@ -21,7 +20,7 @@ export default function ArticleHome({ data }) {
 
 export async function getStaticProps(context) {
 
-    let baseFolder = 'article';
+    const baseFolder = 'article';
     let article = await getBaseMarkup(baseFolder);
     let articles = await getNestedMarkup(baseFolder);
 

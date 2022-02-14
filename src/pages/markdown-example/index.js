@@ -1,24 +1,22 @@
-// www.domain.com/about-us
 // Server side Authentication + SSR
 
 // client side imports
 import React, { Fragment } from 'react';
 import { getSession, useSession } from 'next-auth/react';
 import { getBaseMarkup } from '../../services/siteContentService';
+import MarkdownExample from '../../components/markdown-example/index';
 
 
-export default function MarkdownExample({ data }) {
-    // can use session data below if not using redirecting strategy
-    const { data: session, status } = useSession();
-    const loading = status === "loading";
-
-    return (<Fragment>Markdown-Example Page</Fragment>);
+export default function MarkdownExamplePage({ data }) {
+    return (<Fragment>
+        <MarkdownExample {...data.data} />
+    </Fragment>);
 }
 
 export async function getServerSideProps(context) {
-    let baseFolder = 'markdown-example';
+    const baseFolder = 'markdown-example';
     // Get hold of current auth session
-    const session = await getSession(context);
+    let session = await getSession(context);
     if (!session) {
         return {
             redirect: {
