@@ -162,8 +162,6 @@ Jest has an integrated coverage reporter that works well with ES6 and requires n
 
 Run `npm test -- --coverage` (note extra `--` in the middle) to include a coverage report like this:
 
-![coverage report](https://i.imgur.com/5bFhnTS.png)
-
 Note that tests run much slower with coverage so it is recommended to run it separately from your normal workflow.
 
 ### Configuration[​](#configuration "Direct link to heading")
@@ -299,5 +297,3 @@ Editor Integration[​](#editor-integration "Direct link to heading")
 -------------------------------------------------------------------
 
 If you use [Visual Studio Code](https://code.visualstudio.com), there is a [Jest extension](https://github.com/orta/vscode-jest) which works with Create React App out of the box. This provides a lot of IDE-like features while using a text editor: showing the status of a test run with potential fail messages inline, starting and stopping the watcher automatically, and offering one-click snapshot updates.
-
-![VS Code Jest Preview](https://cloud.githubusercontent.com/assets/49038/20795349/a032308a-b7c8-11e6-9b34-7eeac781003f.png)

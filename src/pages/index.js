@@ -3,9 +3,42 @@
 export default function HomePage() {
 
 
-   return(<div>
-    <h1>Home Page</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>)
+    return (<div>
+        <h1>Application's Tech Stack Overview</h1>
 
+        <ul>
+            <li>Material UI based components</li>
+            <li>React</li>
+            <li>Next.js</li>
+            <ul>
+            <li>Routing</li>
+            <ul>
+            <li>Page based routing</li>
+            <li>Navigation between pages</li>
+            <li>Dynamic Routes</li>
+            <li>API Routes</li>
+            </ul>
+            <li>Markdown</li>
+            <ul>
+            <li>Render Markdown using remark</li>
+            </ul>
+            <li>Authentication</li>
+            <ul>
+            <li>Authentication with nextAuth</li>
+            <li>Integration with okta oAuth provider</li>
+            <li>Client Side Authentication</li>
+            <li>Server Side Authentication</li>
+            <li>API Route Authentication</li>
+            </ul>
+            <li>Pre-rendering and Pre-fetching</li>
+            <ul>
+            <li>Server Side Rendering (getServerSideProps)</li>
+            <li>Static Site Generation (getStaticProps)</li>
+            </ul>
+            </ul>
+            <li>CI / CD using Github Actions</li>
+            <li>Deployment on Vercel</li>
+        </ul>
+
+    </div>)
 }

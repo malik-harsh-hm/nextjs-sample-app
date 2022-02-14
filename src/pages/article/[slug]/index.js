@@ -1,13 +1,23 @@
 
 import React, { Fragment } from 'react';
 import ArticleDetails from '../../../components/article/articleDetails/index';
+import AccessDenied from '../../../components/shared/accessDenied/index'
 import { getBaseMarkup } from '../../../services/siteContentService';
+import { useSession } from "next-auth/react"
 import { getDirectories } from '../../../utils/utils';
 import path from 'path';
 
 
 
 export default function ArticleDetailPage({ data }) {
+    let { data: session, status } = useSession();
+    let loading = status === "loading";
+
+    if (!session) {
+        return (
+            <AccessDenied />
+        )
+    }
     return (<Fragment><ArticleDetails {...data?.article} /></Fragment>);
 }
 
