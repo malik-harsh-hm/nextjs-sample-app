@@ -37,7 +37,7 @@ export default function MainHeader() {
 
   const SignInOutContent = () => {
     return (
-      <Fragment>
+      <span style={{padding:'0 0 0 760px'}}>
         {!session && !loading && (
           <>
             <Button color="inherit" onClick={e => {
@@ -56,37 +56,34 @@ export default function MainHeader() {
 
           </>
         )}
-      </Fragment>
+      </span>
     );
 
   }
 
   const pages = [
     { key: 'Home', nav: '/' },
-    { key: 'Articles', nav: '/article' },
-    { key: 'Markdown Page', nav: '/markdown-example' },
-    { key: 'Protected API', nav: '/api-example' },
+    { key: 'Technology', nav: '/article' },
+    { key: 'HR', nav: '/markdown-example' },
   ];
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <ThemeProvider theme={darkTheme}>
+        <AppBar position="fixed" color="primary">
+          <Toolbar>
+            <Typography variant="h6" color="inherit" style={{ padding: '0 30px' }} >
+              AKQA Gurgaon Intranet
+            </Typography>
+            {pages.map((page, index) => (
+              <Box key={index} style={{ padding: '0 10px' }}>
+                <Link color="primary" href={page.nav}>{page.key}</Link>
+              </Box>
 
-      <AppBar position="sticky" color="primary">
-        <Toolbar>
-          <Typography variant="h4" color="inherit" style={{ padding: '10px' }} >
-            Next.js Showcase
-          </Typography>
-          {pages.map((page, index) => (
-            <Button key={index} style={{
-              backgroundColor: "white",
-              margin: '4px'
-            }}
-              variant="contained"><Link href={page.nav}>{page.key}</Link></Button>
-          ))}
-          {SignInOutContent()}
-        </Toolbar>
-      </AppBar>
+            ))}
+            {SignInOutContent()}
+          </Toolbar>
+        </AppBar>
       </ThemeProvider>
     </Box>
 

@@ -1,4 +1,3 @@
-// Client side authentication + SSG
 
 import React, { Fragment } from 'react';
 import Article from '../../components/article/index'

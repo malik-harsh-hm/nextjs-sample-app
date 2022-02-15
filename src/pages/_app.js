@@ -1,7 +1,6 @@
 // Root App Component
 
 import "../../styles/globals.css";
-import "antd/dist/antd.css";
 import SiteLayout from "../components/shared/layout/Layout";
 import { SessionProvider } from "next-auth/react"
 
