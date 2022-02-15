@@ -11,7 +11,7 @@ export default function MarkdownExample({frontmatter, content, slug}) {
             <p>{frontmatter?.pageDescription}</p>
 
             <section>
-                <article>
+                <article style={{width:'400px'}}>
                     <MarkdownToHtml content = {content} />
                 </article>
             </section>          
