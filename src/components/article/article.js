@@ -1,7 +1,5 @@
 import ArticleTile from './articleTile/index'
 import PageIntro from '../pageIntro/index'
-
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
@@ -28,7 +26,7 @@ export default function Article({article, articles}) {
                                     articleTags={blog.frontmatter.articleTags}
                                     articleImage={blog.frontmatter.articleImage}
                                     articleDescription={blog.frontmatter.articleDescription}
-                                    articleLink={`/article/${blog.slug}`}
+                                    articleLink={`/technology/${blog.slug}`}
                                 />
                             </Paper>
                         </Grid>)

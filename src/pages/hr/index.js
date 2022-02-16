@@ -1,12 +1,13 @@
 
 import React, { Fragment } from 'react';
-import { getSession, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
+
 import AccessDenied from '../../components/shared/accessDenied/index'
-import { getBaseMarkup } from '../../services/siteContentService';
 import MarkdownExample from '../../components/markdown-example/index';
 
+import { getBaseMarkup } from '../../services/siteContentService';
 
-export default function MarkdownExamplePage({ data }) {
+export default function HRPage({ data }) {
     let { data: session, status } = useSession();
     let loading = status === "loading";
 
@@ -21,14 +22,13 @@ export default function MarkdownExamplePage({ data }) {
 }
 
 export async function getStaticProps(context) {
-    const baseFolder = 'markdown-example';
+    const baseFolder = 'hr';
     let data = await getBaseMarkup(baseFolder);
     return {
         props: {
             data: {
                 data
             }
-
         }
     };
 }
