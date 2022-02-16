@@ -1,4 +1,3 @@
-// import { Layout } from "antd";
 import styles from './footer.module.css'; // Import css modules stylesheet as styles
 import Typography from '@mui/material/Typography';
 

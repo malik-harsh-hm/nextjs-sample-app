@@ -4,7 +4,6 @@ import OktaProvider from "next-auth/providers/okta";
 // All requests to /api/auth/* (signIn, callback, signOut, etc.) will automatically be handled by NextAuth.js.
 // Configure one or more authentication providers
 
-
 export default NextAuth({
     providers: [
         OktaProvider({

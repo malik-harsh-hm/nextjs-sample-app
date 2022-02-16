@@ -8,7 +8,7 @@ import Grid from "@mui/material/Grid";
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
-  padding: theme.spacing(4),
+  padding: theme.spacing(10),
   textAlign: "left",
   color: theme.palette.text.secondary
 }));
@@ -21,7 +21,7 @@ export default function MainContent(props) {
       <Grid item xs={2}>
       </Grid>
       <Grid item xs={8}>
-        <Item style={{minHeight:'500px'}}>{props.children}</Item>
+        <Item elevation={10} style={{minHeight:'720px'}}>{props.children}</Item>
       </Grid>
       <Grid item xs={2}>
       </Grid>

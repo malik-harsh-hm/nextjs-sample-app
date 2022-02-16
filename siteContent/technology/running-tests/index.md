@@ -76,9 +76,13 @@ There is a broad spectrum of component testing techniques. They range from a “
 
 Different projects choose different testing tradeoffs based on how often components change, and how much logic they contain. If you haven’t decided on a testing strategy yet, we recommend that you start with creating basic smoke tests for your components:
 
-    import React from 'react';import ReactDOM from 'react-dom';import App from './App';it('renders without crashing', () => {  const div = document.createElement('div');  ReactDOM.render(<App />, div);});
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+    import App from './App';
+    it('renders without crashing', () => {  
+        const div = document.createElement('div');  
+        ReactDOM.render(<App />, div);});
 
-Copy
 
 This test mounts a component and makes sure that it didn’t throw during rendering. Tests like this provide a lot of value with very little effort so they are great as a starting point, and this is the test you will find in `src/App.test.js`.
 
@@ -102,13 +106,19 @@ Copy
 
 If you want to avoid boilerplate in your test files, you can create a [`src/setupTests.js`](#initializing-test-environment) file:
 
-    // react-testing-library renders your components to document.body,// this adds jest-dom's custom assertionsimport '@testing-library/jest-dom';
+    // react-testing-library renders your components to document.body,
+    // this adds jest-dom's custom assertionsimport '@testing-library/jest-dom';
 
 Copy
 
 Here's an example of using `react-testing-library` and `jest-dom` for testing that the `<App />` component renders "Learn React".
 
-    import React from 'react';import { render, screen } from '@testing-library/react';import App from './App';it('renders welcome message', () => {  render(<App />);  expect(screen.getByText('Learn React')).toBeInTheDocument();});
+    import React from 'react';
+    import { render, screen } from '@testing-library/react';
+    import App from './App';
+    it('renders welcome message', () => {  
+        render(<App />);  
+        expect(screen.getByText('Learn React')).toBeInTheDocument();});
 
 Copy
 
@@ -138,7 +148,12 @@ For example:
 
 ### `src/setupTests.js`[​](#srcsetuptestsjs "Direct link to heading")
 
-    const localStorageMock = {  getItem: jest.fn(),  setItem: jest.fn(),  removeItem: jest.fn(),  clear: jest.fn(),};global.localStorage = localStorageMock;
+    const localStorageMock = {  
+        getItem: jest.fn(),  
+        setItem: jest.fn(),  
+        removeItem: jest.fn(),  
+        clear: jest.fn(),};
+        global.localStorage = localStorageMock;
 
 Copy
 
@@ -191,7 +206,30 @@ Supported overrides:
 
 Example package.json:
 
-    {  "name": "your-package",  "jest": {    "collectCoverageFrom": [      "src/**/*.{js,jsx,ts,tsx}",      "!<rootDir>/node_modules/",      "!<rootDir>/path/to/dir/"    ],    "coverageThreshold": {      "global": {        "branches": 90,        "functions": 90,        "lines": 90,        "statements": 90      }    },    "coverageReporters": ["text"],    "snapshotSerializers": ["my-serializer-module"]  }}
+{
+  "name": "your-package",
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/path/to/dir/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    },
+    "coverageReporters": [
+      "text"
+    ],
+    "snapshotSerializers": [
+      "my-serializer-module"
+    ]
+  }
+}
 
 Copy
 
@@ -269,9 +307,12 @@ Disabling jsdom[​](#disabling-jsdom "Direct link to heading")
 
 If you know that none of your tests depend on [jsdom](https://github.com/tmpvar/jsdom), you can safely set `--env=node`, and your tests will run faster:
 
-      "scripts": {    "start": "react-scripts start",    "build": "react-scripts build",-   "test": "react-scripts test"+   "test": "react-scripts test --env=node"
+      "scripts": {    
+          "start": "react-scripts start",    
+          "build": "react-scripts build",-   
+          "test": "react-scripts test"+   
+          "test": "react-scripts test --env=node"
 
-Copy
 
 To help you make up your mind, here is a list of APIs that **need jsdom**:
 

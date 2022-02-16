@@ -8,7 +8,6 @@ export async function markdownToHtml(markdown) {
     return result.toString()
 }
 
-
 export function getDirectories(path) {
     return fs.readdirSync(path).filter(function (file) {
         return fs.statSync(path + '/' + file).isDirectory();
@@ -16,7 +15,6 @@ export function getDirectories(path) {
 }
 
 export async function getMarkupContent(path, slug) {
-
     let markdownWithMeta = fs.readFileSync(path, 'utf-8');
     let { data: frontMatter, content } = matter(markdownWithMeta);
     content = await markdownToHtml(content || '');

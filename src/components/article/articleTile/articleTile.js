@@ -14,7 +14,7 @@ export default function ArticleTile({ articleHeading, articleDate, articleTags, 
     return (
 
       
-        <Card sx={{ height: 400, overflow: 'auto'}}>
+        <Card  variant="outlined" sx={{ height: 400, overflow: 'auto'}}>
         <CardMedia
           component="img"
           height="140"

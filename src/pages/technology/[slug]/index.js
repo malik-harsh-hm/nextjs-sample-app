@@ -1,13 +1,11 @@
 
 import React, { Fragment } from 'react';
-import ArticleDetails from '../../../components/article/articleDetails/index';
-import AccessDenied from '../../../components/shared/accessDenied/index'
-import { getBaseMarkup } from '../../../services/siteContentService';
-import { useSession } from "next-auth/react"
-import { getDirectories } from '../../../utils/utils';
+import { useSession } from "next-auth/react";
 import path from 'path';
-
-
+import ArticleDetails from '../../../components/article/articleDetails/index';
+import AccessDenied from '../../../components/shared/accessDenied/index';
+import { getBaseMarkup } from '../../../services/siteContentService';
+import { getDirectories } from '../../../utils/utils';
 
 export default function ArticleDetailPage({ data }) {
     let { data: session, status } = useSession();
@@ -22,7 +20,7 @@ export default function ArticleDetailPage({ data }) {
 }
 
 export async function getStaticPaths() {
-    const baseFolder = 'article';
+    const baseFolder = 'technology';
     const siteContentFolder = 'siteContent';
     let folders = getDirectories(path.join(siteContentFolder, baseFolder));
     let paths = await Promise.all(folders.map(async (subFolder) => {
@@ -39,7 +37,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-    let baseFolder = 'article/' + context.params.slug;
+    let baseFolder = 'technology/' + context.params.slug;
     let article = await getBaseMarkup(baseFolder);
     return {
         props: {
