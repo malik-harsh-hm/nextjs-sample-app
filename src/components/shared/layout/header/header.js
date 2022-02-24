@@ -7,9 +7,14 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 import Link from 'next/link';
 import { signIn, signOut, useSession } from "next-auth/react"
+import { useRouter } from 'next/router';
 
 
 export default function MainHeader() {
@@ -27,6 +32,8 @@ export default function MainHeader() {
     { key: 'Home', nav: '/' },
     { key: 'Technology', nav: '/technology' },
     { key: 'HR', nav: '/hr' },
+    { key: 'Locales', nav: '/locales-examples' },
+
   ];
 
   const { data: session, status } = useSession();
@@ -59,6 +66,39 @@ export default function MainHeader() {
 
   }
 
+  const router = useRouter();
+  // console.log(router);
+  const handleLocaleChange = (event) => {
+      // console.log('locale selected - ', event.target.value);
+      router.push(router.pathname, router.asPath, { locale: event.target.value})
+  };
+
+  const LocaleSwitcher = () => {
+    return (<Box sx={{ minWidth: 120 }}>
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Locales</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={router.locale}
+          label="Locales"
+          onChange={handleLocaleChange}
+        >
+          {router.locales.map((locale, index) => {
+            return (
+              <MenuItem key={index} value={locale}>{locale}
+                {/* <Link href={asPath} locale={locale}>
+                              {locale}
+                          </Link> */}
+              </MenuItem>
+            );
+          })}
+        </Select>
+      </FormControl>
+    </Box>);
+
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <ThemeProvider theme={darkTheme}>
@@ -73,6 +113,7 @@ export default function MainHeader() {
               </Box>
             ))}
             {SignInOutContent()}
+            {LocaleSwitcher()}
           </Toolbar>
         </AppBar>
       </ThemeProvider>
