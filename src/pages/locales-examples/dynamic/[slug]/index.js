@@ -13,19 +13,15 @@ export default function DynamicSSGDetailsPage({ data }) {
     </Fragment>);
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths({locales}) {
+    // if no `locale` is provided only the defaultLocale will be generated
+    console.log(locales);
     return {
         paths: [
-            {
-                params: {
-                    slug: 'sub-route-1',
-                },
-            },
-            {
-                params: {
-                    slug: 'sub-route-2',
-                },
-            },
+            { params: { slug: 'sub-route-1' }, locale: locales[0], } ,
+            { params: { slug: 'sub-route-2' }, locale: locales[0], } ,
+            { params: { slug: 'sub-route-1' }, locale: locales[1], } ,
+            { params: { slug: 'sub-route-2' }, locale: locales[1], } ,
         ],
         fallback: false
     };
