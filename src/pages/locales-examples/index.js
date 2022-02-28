@@ -15,7 +15,7 @@ export default function LocalesExamplePage() {
     ];
 
     return (<Fragment>
-        <h1>Locales Examples Page</h1>
+        <h1>Locales samples Page</h1>
         {pages.map((page, index) => (
             <Box key={index} style={{ padding: '0 10px' }}>
                 <Link color="primary" href={page.nav}>{page.key}</Link>

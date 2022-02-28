@@ -22,13 +22,16 @@ export default function HRPage({ data }) {
 }
 
 export async function getStaticProps(context) {
-    const baseFolder = 'hr';
+    const baseFolder = context.locale + '/hr';
+
+    // CMS API
     let data = await getBaseMarkup(baseFolder);
+
+    let content = {data}
+
     return {
         props: {
-            data: {
-                data
-            }
+            data: content
         }
     };
 }

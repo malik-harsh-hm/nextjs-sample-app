@@ -1,4 +1,3 @@
-
 import React, { Fragment } from 'react';
 
 import AppBar from '@mui/material/AppBar';
@@ -32,7 +31,9 @@ export default function MainHeader() {
     { key: 'Home', nav: '/' },
     { key: 'Technology', nav: '/technology' },
     { key: 'HR', nav: '/hr' },
+    { key: 'APIs', nav: '/api-example' },
     { key: 'Locales', nav: '/locales-examples' },
+    { key: 'Caching', nav: '/posts' },
 
   ];
 
@@ -69,19 +70,19 @@ export default function MainHeader() {
   const router = useRouter();
   // console.log(router);
   const handleLocaleChange = (event) => {
-      // console.log('locale selected - ', event.target.value);
-      router.push(router.pathname, router.asPath, { locale: event.target.value})
+    // console.log('locale selected - ', event.target.value);
+    router.push(router.pathname, router.asPath, { locale: event.target.value })
   };
 
   const LocaleSwitcher = () => {
-    return (<Box sx={{ minWidth: 120 }}>
+    return (<Box sx={{ minWidth: 100 }}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Locales</InputLabel>
+        <InputLabel id="demo-simple-select-label">Languages</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={router.locale}
-          label="Locales"
+          label="Languages"
           onChange={handleLocaleChange}
         >
           {router.locales.map((locale, index) => {
@@ -104,8 +105,9 @@ export default function MainHeader() {
       <ThemeProvider theme={darkTheme}>
         <AppBar position="fixed" color="primary">
           <Toolbar>
-            <Typography variant="h6" color="inherit" style={{ padding: '0 30px' }} >
-              AKQA Intranet
+            <Typography variant="h6" color="inherit" style={{ padding: '0 40px' }} >
+              <a href='https://nextjs.org/' rel="noreferrer" target='_blank'>Next.js</a>
+
             </Typography>
             {pages.map((page, index) => (
               <Box key={index} style={{ padding: '0 10px' }}>

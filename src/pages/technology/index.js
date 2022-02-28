@@ -17,17 +17,20 @@ export default function ArticleHomePage({ data }) {
 }
 
 export async function getStaticProps(context) {
-    const baseFolder = 'technology'
+    const baseFolder = context.locale + '/technology'
 
+    // CMS API
     let article = await getBaseMarkup(baseFolder);
     let articles = await getNestedMarkup(baseFolder);
 
+    let content = {
+        article,
+        articles
+    }
+
     return {
         props: {
-            data: {
-                article: article,
-                articles: articles
-            }
+            data: content
         }
     };
 }
